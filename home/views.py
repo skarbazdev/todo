@@ -8,6 +8,7 @@ def index(request):
         title = request.POST.get('title')
         if title != " ":
             Todo.objects.create(title=title)
+        
         return redirect('index')
     data = Todo.objects.all()
     context = {
@@ -22,12 +23,12 @@ def delview(request,id=None):
     dlt.delete()
     return redirect('/')
 
-# # def editview(request,id):
+# def editview(request,id):
 
-# #     edit = Todo.objects.get(pk=id)
-# #     # form = Todo(instance=edit)
+#     edit = Todo.objects.get(pk=id)
+#     # form = Todo(instance=edit)
 
-# #     return redirect('/')
+#     return redirect('/')
 
 def Complete(request, id=None):
     data = Todo.objects.get(id=id)
